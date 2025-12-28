@@ -27,7 +27,7 @@ public class DualGreatSwordsLootingEngine {
         int modifier = CommonConfig.SKILL_BOOK_MOB_DROP_CHANCE_MODIFIER.get();
         int dropChance = 100 + modifier;
         int antiDropChance = 100 - modifier;
-        float dropChanceModifier = antiDropChance == 0 ? Float.MAX_VALUE : (float)dropChance / (float)antiDropChance;
+        float dropChanceModifier = antiDropChance == 0 ? Float.MAX_VALUE : (float) dropChance / antiDropChance;
         event.add(EntityType.ZOMBIE, LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1.0F))
                         .when(LootItemRandomChanceCondition.randomChance(0.005F * dropChanceModifier))
@@ -63,7 +63,7 @@ public class DualGreatSwordsLootingEngine {
                         .add(LootItem.lootTableItem(EpicFightItems.SKILLBOOK.get())
                                 .apply(SetSkillFunction.builder(1.0F, "dualgreatswords:dualgreatsword"))))
                 .add(EntityType.ENDERMAN, LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                        .when(LootItemRandomChanceCondition.randomChance(0.01F * dropChanceModifier))
+                        .when(LootItemRandomChanceCondition.randomChance(0.025F * dropChanceModifier))
                         .add(LootItem.lootTableItem(EpicFightItems.SKILLBOOK.get())
                                 .apply(SetSkillFunction.builder(1.0F, "dualgreatswords:dualgreatsword"))))
                 .add(EntityType.PIGLIN, LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
